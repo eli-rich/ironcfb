@@ -19,11 +19,6 @@ class IronCFB {
 }
 
 const ironCFB = new IronCFB(process.env.CFB_KEY!);
-const plays = await ironCFB.plays.get({
-  year: 2022,
-  week: 11,
-  team: 'Alabama',
-  offense: 'Alabama',
-});
+const statTypes = await ironCFB.plays.statTypes();
 
-console.log(JSON.stringify(plays, null, 2));
+console.log(JSON.stringify(statTypes, null, 2));

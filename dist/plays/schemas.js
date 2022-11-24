@@ -12,4 +12,14 @@ export const playSchema = z.object({
     playType: z.number().optional(),
     classification: z.enum(['fbs', 'fcs', 'ii', 'iii']).optional(),
 });
+export const playStatSchema = z.object({
+    year: z.number().min(1900).max(2100).optional(),
+    week: z.number().min(1).max(52).optional(),
+    team: z.string().optional(),
+    gameId: z.number().optional(),
+    athleteId: z.number().optional(),
+    statTypeId: z.number().optional(),
+    seasonType: z.enum(['regular', 'postseason', 'both']).optional(),
+    conference: z.string().optional(),
+});
 //# sourceMappingURL=schemas.js.map
