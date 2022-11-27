@@ -1,3 +1,5 @@
+import { z } from 'zod';
+import { conferences } from '../shared.js';
 interface RecordGames {
     games: number;
     wins: number;
@@ -7,7 +9,7 @@ interface RecordGames {
 export interface TeamRecord {
     year: number | null;
     team: string | null;
-    conference: string | null;
+    conference: z.infer<typeof conferences> | null;
     division: string | null;
     expectedWins: number | null;
     total: RecordGames | null;
@@ -30,7 +32,7 @@ export interface Game {
     venue: string | null;
     home_id: number | null;
     home_team: string | null;
-    home_conference: string | null;
+    home_conference: z.infer<typeof conferences> | null;
     home_division: string | null;
     home_points: number | null;
     home_line_scores: number[] | null;
@@ -39,7 +41,7 @@ export interface Game {
     home_postgame_elo: number | null;
     away_id: number | null;
     away_team: string | null;
-    away_conference: string | null;
+    away_conference: z.infer<typeof conferences> | null;
     away_division: string | null;
     away_points: number | null;
     away_line_scores: number[] | null;
@@ -65,9 +67,9 @@ export interface Media {
     startTime: string | null;
     isStartTimeTBD: boolean | null;
     homeTeam: string | null;
-    homeConference: string | null;
+    homeConference: z.infer<typeof conferences> | null;
     awayTeam: string | null;
-    awayConference: string | null;
+    awayConference: z.infer<typeof conferences> | null;
     mediaType: string | null;
     outlet: string | null;
 }
@@ -90,7 +92,7 @@ interface StatCat {
 }
 interface PlayerTeam {
     school: string | null;
-    conference: string | null;
+    conference: z.infer<typeof conferences> | null;
     homeAway: HomeAway | null;
     points: number | null;
     categories: StatCat[] | null;
@@ -105,7 +107,7 @@ interface Stat {
 }
 interface Team {
     school: string | null;
-    conference: string | null;
+    conference: z.infer<typeof conferences> | null;
     homeAway: HomeAway | null;
     points: number | null;
     stats: Stat[] | null;

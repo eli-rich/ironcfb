@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { classifications, conferences, divisions, Timezone } from '../shared.js';
+import { classifications, conferences, divisions, Position, Timezone } from '../shared.js';
 
 export interface Location {
   venue_id: number | null;
@@ -50,4 +50,54 @@ export interface FBSTeam {
   logos: string[] | null;
   twitter: string | null;
   location: Location | null;
+}
+
+export interface Player {
+  id: string | null;
+  first_name: string | null;
+  last_name: string | null;
+  team: string | null;
+  weight: number | null;
+  height: number | null;
+  jersey: number | null;
+  year: number | null;
+  position: Position | null;
+  home_city: string | null;
+  home_state: string | null;
+  home_country: string | null;
+  home_latitude: string | null;
+  home_longitude: string | null;
+  home_county_fips: string | null;
+  recruit_ids: number[] | null;
+}
+
+export interface Talent {
+  year: number | null;
+  team: string | null;
+  talent: string | null;
+}
+
+interface Game {
+  season: number | null;
+  week: number | null;
+  seasonType: string | null;
+  date: Date | null;
+  neutralSite: boolean | null;
+  venue: string | null;
+  homeTeam: string | null;
+  homeScore: number | null;
+  awayTeam: string | null;
+  awayScore: number | null;
+  winner: string | null;
+}
+
+export interface Matchup {
+  team1: string | null;
+  team2: string | null;
+  startYear: string | null;
+  endYear: string | null;
+  team1Wins: number | null;
+  team2Wins: number | null;
+  ties: number | null;
+  games: Game[];
 }

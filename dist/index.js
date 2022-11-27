@@ -19,12 +19,11 @@ class IronCFB {
         this.teams = new Teams(apiKey, this.#ua);
     }
 }
-const ironCFB = new IronCFB(process.env.CFB_KEY);
-const teams = await ironCFB.teams.get({ conference: 'SEC' });
-teams.forEach((team) => {
-    console.log(team.school);
-    console.log(team.twitter);
-    console.log(team.mascot);
-    console.log('\n');
+const iron = new IronCFB(process.env.CFB_KEY);
+const players = await iron.teams.roster({
+    team: 'Alabama',
+    year: 2022,
 });
+const bamaBoys = players.filter((player) => player.home_state === 'AL');
+console.log(bamaBoys);
 //# sourceMappingURL=index.js.map

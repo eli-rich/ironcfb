@@ -47,3 +47,17 @@ export enum StatType {
   Target = 'Target',
   Touchdown = 'Touchdown',
 }
+
+export enum Position {
+  DB = 'DB',
+  DL = 'DL',
+  LB = 'LB',
+  Ls = 'LS',
+  Ol = 'OL',
+  P = 'P',
+  Pk = 'PK',
+  Qb = 'QB',
+  Rb = 'RB',
+  Te = 'TE',
+  Wr = 'WR',
+}

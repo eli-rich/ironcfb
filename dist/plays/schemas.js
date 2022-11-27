@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { conferences, divisions } from '../shared.js';
 export const playSchema = z.object({
     seasonType: z.enum(['regular', 'postseason']).optional(),
     year: z.number().min(1900).max(2100),
@@ -6,11 +7,11 @@ export const playSchema = z.object({
     team: z.string().optional(),
     offense: z.string().optional(),
     defense: z.string().optional(),
-    conference: z.string().optional(),
-    offenseConference: z.string().optional(),
-    defenseConference: z.string().optional(),
+    conference: conferences.optional(),
+    offenseConference: conferences.optional(),
+    defenseConference: conferences.optional(),
     playType: z.number().optional(),
-    classification: z.enum(['fbs', 'fcs', 'ii', 'iii']).optional(),
+    classification: divisions.optional(),
 });
 export const playStatSchema = z.object({
     year: z.number().min(1900).max(2100).optional(),
@@ -20,6 +21,6 @@ export const playStatSchema = z.object({
     athleteId: z.number().optional(),
     statTypeId: z.number().optional(),
     seasonType: z.enum(['regular', 'postseason', 'both']).optional(),
-    conference: z.string().optional(),
+    conference: conferences.optional(),
 });
 //# sourceMappingURL=schemas.js.map
