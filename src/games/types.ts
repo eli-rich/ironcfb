@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { conferences } from '../shared.js';
 
 interface RecordGames {
@@ -10,7 +11,7 @@ interface RecordGames {
 export interface TeamRecord {
   year: number | null;
   team: string | null;
-  conference: typeof conferences | null;
+  conference: z.infer<typeof conferences> | null;
   division: string | null;
   expectedWins: number | null;
   total: RecordGames | null;
@@ -35,7 +36,7 @@ export interface Game {
 
   home_id: number | null;
   home_team: string | null;
-  home_conference: typeof conferences | null;
+  home_conference: z.infer<typeof conferences> | null;
   home_division: string | null;
   home_points: number | null;
   home_line_scores: number[] | null;
@@ -45,7 +46,7 @@ export interface Game {
 
   away_id: number | null;
   away_team: string | null;
-  away_conference: typeof conferences | null;
+  away_conference: z.infer<typeof conferences> | null;
   away_division: string | null;
   away_points: number | null;
   away_line_scores: number[] | null;
@@ -74,9 +75,9 @@ export interface Media {
   startTime: string | null;
   isStartTimeTBD: boolean | null;
   homeTeam: string | null;
-  homeConference: typeof conferences | null;
+  homeConference: z.infer<typeof conferences> | null;
   awayTeam: string | null;
-  awayConference: typeof conferences | null;
+  awayConference: z.infer<typeof conferences> | null;
   mediaType: string | null;
   outlet: string | null;
 }
@@ -104,7 +105,7 @@ interface StatCat {
 
 interface PlayerTeam {
   school: string | null;
-  conference: typeof conferences | null;
+  conference: z.infer<typeof conferences> | null;
   homeAway: HomeAway | null;
   points: number | null;
   categories: StatCat[] | null;
@@ -122,7 +123,7 @@ interface Stat {
 
 interface Team {
   school: string | null;
-  conference: typeof conferences | null;
+  conference: z.infer<typeof conferences> | null;
   homeAway: HomeAway | null;
   points: number | null;
   stats: Stat[] | null;

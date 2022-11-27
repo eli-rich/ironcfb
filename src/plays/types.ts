@@ -1,4 +1,5 @@
-import { conferences } from '../shared.js';
+import { z } from 'zod';
+import { conferences, StatType } from '../shared.js';
 
 interface Elapsed {
   minutes: number | null;
@@ -19,9 +20,9 @@ export interface TypeStat {
 export interface Play {
   id: string | null;
   offense: string | null;
-  offense_conference: typeof conferences | null;
+  offense_conference: z.infer<typeof conferences> | null;
   defense: string | null;
-  defense_conference: typeof conferences | null;
+  defense_conference: z.infer<typeof conferences> | null;
   home: string | null;
   away: string | null;
   offense_score: number | null;
@@ -46,29 +47,12 @@ export interface Play {
   wallclock: Elapsed | null;
 }
 
-enum StatType {
-  Completion = 'Completion',
-  Fumble = 'Fumble',
-  FumbleForced = 'Fumble Forced',
-  FumbleRecovered = 'Fumble Recovered',
-  Incompletion = 'Incompletion',
-  Interception = 'Interception',
-  InterceptionThrown = 'Interception Thrown',
-  PassBreakup = 'Pass Breakup',
-  Reception = 'Reception',
-  Rush = 'Rush',
-  Sack = 'Sack',
-  SackTaken = 'Sack Taken',
-  Target = 'Target',
-  Touchdown = 'Touchdown',
-}
-
 export interface StatPlay {
   gameId: number | null;
   season: number | null;
   week: number | null;
   team: string | null;
-  conference: typeof conferences | null;
+  conference: z.infer<typeof conferences> | null;
   opponent: string | null;
   teamScore: number | null;
   opponentScore: number | null;

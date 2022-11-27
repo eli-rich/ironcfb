@@ -14,4 +14,36 @@ export const conferences = z.enum([
   'Sun Belt',
 ]);
 
-export const divisions = z.enum(['fbs', 'fcs', 'ii', 'iii']);
+export const classifications = z.enum(['fbs', 'fcs', 'ii', 'iii']);
+
+export const divisions = z.enum(['Atlantic', 'Coastal', 'East', 'Mountain', 'West']);
+
+export enum Timezone {
+  AmericaBoise = 'America/Boise',
+  AmericaChicago = 'America/Chicago',
+  AmericaDenver = 'America/Denver',
+  AmericaDetroit = 'America/Detroit',
+  AmericaIndianaIndianapolis = 'America/Indiana/Indianapolis',
+  AmericaKentuckyLouisville = 'America/Kentucky/Louisville',
+  AmericaLasAngeles = 'America/Las_Angeles',
+  AmericaLosAngeles = 'America/Los_Angeles',
+  AmericaNewYork = 'America/New_York',
+  AmericaPhoenix = 'America/Phoenix',
+}
+
+export enum StatType {
+  Completion = 'Completion',
+  Fumble = 'Fumble',
+  FumbleForced = 'Fumble Forced',
+  FumbleRecovered = 'Fumble Recovered',
+  Incompletion = 'Incompletion',
+  Interception = 'Interception',
+  InterceptionThrown = 'Interception Thrown',
+  PassBreakup = 'Pass Breakup',
+  Reception = 'Reception',
+  Rush = 'Rush',
+  Sack = 'Sack',
+  SackTaken = 'Sack Taken',
+  Target = 'Target',
+  Touchdown = 'Touchdown',
+}
