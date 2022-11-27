@@ -1,3 +1,5 @@
+import { conferences } from '../shared.js';
+
 interface Elapsed {
   minutes: number | null;
   seconds: number | null;
@@ -17,9 +19,9 @@ export interface TypeStat {
 export interface Play {
   id: string | null;
   offense: string | null;
-  offense_conference: string | null;
+  offense_conference: typeof conferences | null;
   defense: string | null;
-  defense_conference: string | null;
+  defense_conference: typeof conferences | null;
   home: string | null;
   away: string | null;
   offense_score: number | null;
@@ -66,7 +68,7 @@ export interface StatPlay {
   season: number | null;
   week: number | null;
   team: string | null;
-  conference: string | null;
+  conference: typeof conferences | null;
   opponent: string | null;
   teamScore: number | null;
   opponentScore: number | null;

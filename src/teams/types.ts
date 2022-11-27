@@ -1,3 +1,5 @@
+import { conferences } from '../shared.js';
+
 interface Location {
   venue_id: string | null;
   name: string | null;
@@ -22,7 +24,7 @@ export interface Team {
   alt_name1: string | null;
   alt_name2: string | null;
   alt_name3: string | null;
-  conference: string | null;
+  conference: typeof conferences | null;
   classification: string | null;
   color: string | null;
   alt_color: string | null;
