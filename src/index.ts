@@ -1,12 +1,10 @@
 import Games from './games/games.js';
-import * as dotenv from 'dotenv';
 import Drives from './drives/drives.js';
 import Plays from './plays/plays.js';
 import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
-dotenv.config();
 
-class IronCFB {
+export default class IronCFB {
   #apiKey: string;
   #ua = 'IronCFB v0.0.1';
   public games: Games;
