@@ -1,8 +1,19 @@
+import { z } from 'zod';
 import Games from './games/games.js';
 import Drives from './drives/drives.js';
 import Plays from './plays/plays.js';
 import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
+declare const OptionSchema: z.ZodObject<{
+    apiKey: z.ZodString;
+    ua: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    apiKey: string;
+    ua: string;
+}, {
+    apiKey: string;
+    ua: string;
+}>;
 export default class IronCFB {
     #private;
     games: Games;
@@ -10,5 +21,6 @@ export default class IronCFB {
     plays: Plays;
     teams: Teams;
     conferences: Conferences;
-    constructor(apiKey: string);
+    constructor(options: z.infer<typeof OptionSchema>);
 }
+export {};

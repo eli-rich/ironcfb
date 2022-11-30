@@ -1,23 +1,30 @@
+import { z } from 'zod';
 import Games from './games/games.js';
 import Drives from './drives/drives.js';
 import Plays from './plays/plays.js';
 import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
+const OptionSchema = z.object({
+    apiKey: z.string(),
+    ua: z.string(),
+});
 export default class IronCFB {
     #apiKey;
-    #ua = 'IronCFB v0.0.1';
+    #ua;
     games;
     drives;
     plays;
     teams;
     conferences;
-    constructor(apiKey) {
-        this.#apiKey = apiKey;
-        this.games = new Games(apiKey, this.#ua);
-        this.drives = new Drives(apiKey, this.#ua);
-        this.plays = new Plays(apiKey, this.#ua);
-        this.teams = new Teams(apiKey, this.#ua);
-        this.conferences = new Conferences(apiKey, this.#ua);
+    constructor(options) {
+        const parsedOption = OptionSchema.parse(options);
+        this.#apiKey = parsedOption.apiKey;
+        this.#ua = parsedOption.ua;
+        this.games = new Games(this.#apiKey, this.#ua);
+        this.drives = new Drives(this.#apiKey, this.#ua);
+        this.plays = new Plays(this.#apiKey, this.#ua);
+        this.teams = new Teams(this.#apiKey, this.#ua);
+        this.conferences = new Conferences(this.#apiKey, this.#ua);
     }
 }
 //# sourceMappingURL=index.js.map

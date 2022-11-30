@@ -1,9 +1,9 @@
-import IronCFB from './dist/index.js';
+import IronCFB from '../dist/index.js';
 
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const iron = new IronCFB(process.env.CFB_KEY);
+const iron = new IronCFB({ apiKey: process.env.CFB_KEY!, ua: 'MyAppName/1.0.0 using IronCFB' });
 
 const ironBowls = await iron.teams.matchup({
   team1: 'Alabama',
