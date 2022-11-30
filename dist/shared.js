@@ -26,6 +26,8 @@ export var Timezone;
     Timezone["AmericaLosAngeles"] = "America/Los_Angeles";
     Timezone["AmericaNewYork"] = "America/New_York";
     Timezone["AmericaPhoenix"] = "America/Phoenix";
+    Timezone["AustraliaSydney"] = "Australia/Sydney";
+    Timezone["PacificHonolulu"] = "Pacific/Honolulu";
 })(Timezone || (Timezone = {}));
 export var StatType;
 (function (StatType) {

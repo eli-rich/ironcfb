@@ -4,6 +4,7 @@ import Drives from './drives/drives.js';
 import Plays from './plays/plays.js';
 import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
+import Venues from './venues/venues.js';
 declare const OptionSchema: z.ZodObject<{
     apiKey: z.ZodString;
     userAgent: z.ZodString;
@@ -21,6 +22,7 @@ export default class IronCFB {
     plays: Plays;
     teams: Teams;
     conferences: Conferences;
+    venues: Venues;
     constructor(options: z.infer<typeof OptionSchema>);
 }
 export {};

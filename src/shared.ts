@@ -29,6 +29,8 @@ export enum Timezone {
   AmericaLosAngeles = 'America/Los_Angeles',
   AmericaNewYork = 'America/New_York',
   AmericaPhoenix = 'America/Phoenix',
+  AustraliaSydney = 'Australia/Sydney',
+  PacificHonolulu = 'Pacific/Honolulu',
 }
 
 export enum StatType {

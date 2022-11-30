@@ -12,7 +12,9 @@ export declare enum Timezone {
     AmericaLasAngeles = "America/Las_Angeles",
     AmericaLosAngeles = "America/Los_Angeles",
     AmericaNewYork = "America/New_York",
-    AmericaPhoenix = "America/Phoenix"
+    AmericaPhoenix = "America/Phoenix",
+    AustraliaSydney = "Australia/Sydney",
+    PacificHonolulu = "Pacific/Honolulu"
 }
 export declare enum StatType {
     Completion = "Completion",

@@ -4,6 +4,9 @@ import Drives from './drives/drives.js';
 import Plays from './plays/plays.js';
 import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
+import * as dotenv from 'dotenv';
+import Venues from './venues/venues.js';
+dotenv.config();
 const OptionSchema = z.object({
     apiKey: z.string(),
     userAgent: z.string(),
@@ -16,6 +19,7 @@ export default class IronCFB {
     plays;
     teams;
     conferences;
+    venues;
     constructor(options) {
         const parsedOption = OptionSchema.parse(options);
         this.#apiKey = parsedOption.apiKey;
@@ -25,6 +29,15 @@ export default class IronCFB {
         this.plays = new Plays(this.#apiKey, this.#userAgent);
         this.teams = new Teams(this.#apiKey, this.#userAgent);
         this.conferences = new Conferences(this.#apiKey, this.#userAgent);
+        this.venues = new Venues(this.#apiKey, this.#userAgent);
     }
+}
+const iron = new IronCFB({
+    apiKey: process.env.CFB_KEY,
+    userAgent: 'IronCFB',
+});
+const venues = await iron.venues.get();
+for (const venue of venues) {
+    console.log(venue.city);
 }
 //# sourceMappingURL=index.js.map
