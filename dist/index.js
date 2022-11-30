@@ -6,8 +6,6 @@ import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
 import Venues from './venues/venues.js';
 import Coaches from './coaches/coaches.js';
-import * as dotenv from 'dotenv';
-dotenv.config();
 const OptionSchema = z.object({
     apiKey: z.string(),
     userAgent: z.string(),
@@ -35,22 +33,4 @@ export default class IronCFB {
         this.coaches = new Coaches(this.#apiKey, this.#userAgent);
     }
 }
-const iron = new IronCFB({
-    apiKey: process.env.CFB_KEY,
-    userAgent: 'IronCFB',
-});
-const coaches = await iron.coaches.get({
-    team: 'Alabama',
-    year: 2020,
-});
-console.log(JSON.stringify(coaches, null, 2));
-coaches.forEach((coach) => {
-    console.log(`${coach.first_name} ${coach.last_name}`);
-    console.log(`Hired: ${coach.hire_date}`);
-    for (const season of coach.seasons) {
-        console.log(`  ${season.school} ${season.year}`);
-        console.log(`  Wins: ${season.wins}`);
-    }
-    console.log();
-});
 //# sourceMappingURL=index.js.map
