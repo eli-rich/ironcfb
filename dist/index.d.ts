@@ -6,13 +6,13 @@ import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
 declare const OptionSchema: z.ZodObject<{
     apiKey: z.ZodString;
-    ua: z.ZodString;
+    userAgent: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     apiKey: string;
-    ua: string;
+    userAgent: string;
 }, {
     apiKey: string;
-    ua: string;
+    userAgent: string;
 }>;
 export default class IronCFB {
     #private;

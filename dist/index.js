@@ -6,11 +6,11 @@ import Teams from './teams/teams.js';
 import Conferences from './conferences/conferences.js';
 const OptionSchema = z.object({
     apiKey: z.string(),
-    ua: z.string(),
+    userAgent: z.string(),
 });
 export default class IronCFB {
     #apiKey;
-    #ua;
+    #userAgent;
     games;
     drives;
     plays;
@@ -19,12 +19,12 @@ export default class IronCFB {
     constructor(options) {
         const parsedOption = OptionSchema.parse(options);
         this.#apiKey = parsedOption.apiKey;
-        this.#ua = parsedOption.ua;
-        this.games = new Games(this.#apiKey, this.#ua);
-        this.drives = new Drives(this.#apiKey, this.#ua);
-        this.plays = new Plays(this.#apiKey, this.#ua);
-        this.teams = new Teams(this.#apiKey, this.#ua);
-        this.conferences = new Conferences(this.#apiKey, this.#ua);
+        this.#userAgent = parsedOption.userAgent;
+        this.games = new Games(this.#apiKey, this.#userAgent);
+        this.drives = new Drives(this.#apiKey, this.#userAgent);
+        this.plays = new Plays(this.#apiKey, this.#userAgent);
+        this.teams = new Teams(this.#apiKey, this.#userAgent);
+        this.conferences = new Conferences(this.#apiKey, this.#userAgent);
     }
 }
 //# sourceMappingURL=index.js.map
